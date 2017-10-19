@@ -60,6 +60,8 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			first =null;
 		}
 	}
+	// n => Número de elementos de la lista
+	// O(n)
 	
 
 
