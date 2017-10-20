@@ -33,6 +33,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         Node<T> ultimo = first.prev;
         if (first.next == null) {
             first = null;
+            dev = first.data;
         } else {
             primero = primero.next;
             primero.prev = ultimo;
@@ -50,8 +51,10 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
         T dev = first.prev.data;
         Node<T> ultimo = first.prev;
-        if (first.next == null)
+        if (first.next == null){
+            dev = first.data;
             first = null;
+        }
         else {
             ultimo = ultimo.prev;
             ultimo.next = first;
@@ -105,13 +108,11 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     }
 
 
-
     public int size()
     //Determina el n�mero de elementos de la lista
     {
         return count;
     }
-
 
 
     /**
