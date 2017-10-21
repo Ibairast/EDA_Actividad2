@@ -71,16 +71,20 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
         Node<T> act = first;
         if (!isEmpty()) {
-            while (elem != act) {
-                act = act.next;//Llegar al elemento
-                if (act == first) {
-                    return null;//No esta
+            if (first != first.next) {
+                while (elem != act) {
+                    act = act.next;//Llegar al elemento
+                    if (act == first) {
+                        return null;//No esta
+                    }
                 }
+                act.next.prev = act.prev;
+                act.prev.next = act.next;
+                count--;
+                return act.data;
+            } else {
+                first = null;
             }
-            act.next.prev = act.prev;
-            act.prev.next = act.next;
-            count--;
-            return act.data;
         }
         return null;
     }//O(n)
