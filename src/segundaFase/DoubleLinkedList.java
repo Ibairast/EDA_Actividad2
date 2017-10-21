@@ -69,9 +69,21 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     public T remove(T elem) {
         //Elimina un elemento concreto de la lista
         // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-
+        Node<T> act = first;
+        if (!isEmpty()) {
+            while (elem != act) {
+                act = act.next;//Llegar al elemento
+                if (act == first) {
+                    return null;//No esta
+                }
+            }
+            act.next.prev = act.prev;
+            act.prev.next = act.next;
+            count--;
+            return act.data;
+        }
         return null;
-    }
+    }//O(n)
 
     public T first() {
         //Da acceso al primer elemento de la lista
@@ -89,17 +101,32 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
     public boolean contains(T elem) {
         //Determina si la lista contiene un elemento concreto
-        if (isEmpty())
-            return false;
-        // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-        return false;
-    }
+        Node<T> act = first;
+        if (!isEmpty()) {
+            while (elem != act) {
+                act = act.next;//Llegar al elemento
+                if (act == first) {
+                    return false;//No esta
+                }
+            }
+        }
+        return true;
+    }// O(n/2)*P(está) + O(n)*P(!está)
 
     public T find(T elem) {
         //Determina si la lista contiene un elemento concreto, y develve su referencia, null en caso de que no est�
         // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-        return null;
-    }
+        Node<T> act = first;
+        if (!isEmpty()) {
+            while (elem != act) {
+                act = act.next;//Llegar al elemento
+                if (act == first) {
+                    return null;//No esta
+                }
+            }
+        }
+        return act.data;
+    }// O(n/2)*P(está) + O(n)*P(!está)
 
     public boolean isEmpty()
     //Determina si la lista est� vac�a
@@ -139,17 +166,22 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
     // an iterator, doesn't implement remove() since it's optional
     private class ListIterator implements Iterator<T> {
+        private Node<T> act = first;
         @Override
         public boolean hasNext() {
-            return false;
+            return act != null;
         }
 
         @Override
         public T next() {
+            if (hasNext()) {
+                T t = act.data;
+                act = act.next;
+                return t;
+            }
             return null;
         }
-
-        // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
+        //O(1s)
 
 
     } // private class
