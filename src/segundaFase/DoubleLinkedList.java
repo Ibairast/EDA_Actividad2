@@ -84,6 +84,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                 return act.data;
             } else {
                 first = null;
+                count--;
             }
         }
         return null;
