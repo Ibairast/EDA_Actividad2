@@ -32,8 +32,6 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         Node<T> newPrimero = first.next;
         Node<T> ultimo = first.prev;
         if (first.equals(ultimo)) {
-            first.prev = null;
-            first.next = null;
             first = null;
         } else {
             ultimo.next = newPrimero;
@@ -54,8 +52,6 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         Node<T> ultimo = first.prev;
         T dev = first.prev.data;
         if (first.equals(ultimo)) {
-            first.next = null;
-            first.prev = null;
             first = null;
         } else {
             ultimo = ultimo.prev;
