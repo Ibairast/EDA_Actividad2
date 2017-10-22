@@ -29,16 +29,12 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         // Precondici�n: la lista tiene al menos un elemento
         // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
         T dev = first.data;
-        Node<T> primero = first;
+        Node<T> newPrimero = first.next;
         Node<T> ultimo = first.prev;
-        if (first.next == null) {
-            first = null;
-            dev = first.data;
-        } else {
-            primero = primero.next;
-            primero.prev = ultimo;
-            ultimo.next = primero;
-        }
+
+        ultimo.next = newPrimero;
+        newPrimero.prev = ultimo;
+        first = newPrimero;
         count--;
         return dev;
         // O(1)
@@ -46,21 +42,16 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     }
 
     public T removeLast() {
-        // Elimina el �ltimo elemento de la lista
+        // Elimina el �ltimo elemento de la listac
         // Precondici�n: la lista tiene al menos un elemento
         // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-        T dev = first.prev.data;
         Node<T> ultimo = first.prev;
-        if (first.next == null){
-            dev = first.data;
-            first = null;
-        }
-        else {
-            ultimo = ultimo.prev;
-            ultimo.next = first;
-            first.next = ultimo;
+        T dev = first.prev.data;
+        ultimo = ultimo.prev;
+        ultimo.next = first;
+        first.prev = ultimo;
 
-        }
+
         count--;
         return dev;
     }//O(1)
@@ -83,7 +74,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                 count--;
                 return act.data;
             } else {
-                if (first.data==elem){
+                if (first.data == elem) {
                     first = null;
                     count--;
                 }
@@ -175,6 +166,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     // an iterator, doesn't implement remove() since it's optional
     private class ListIterator implements Iterator<T> {
         private Node<T> act = first;
+
         @Override
         public boolean hasNext() {
             return act != null;
@@ -192,6 +184,6 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         //O(1s)
 
 
-    } // private class
+    }
 
 }
