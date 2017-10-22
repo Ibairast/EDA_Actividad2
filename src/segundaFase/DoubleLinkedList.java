@@ -31,11 +31,17 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         T dev = first.data;
         Node<T> newPrimero = first.next;
         Node<T> ultimo = first.prev;
+        if (first.equals(ultimo)) {
+            first.prev = null;
+            first.next = null;
+            first = null;
+        } else {
+            ultimo.next = newPrimero;
+            newPrimero.prev = ultimo;
+            first = newPrimero;
+            count--;
+        }
 
-        ultimo.next = newPrimero;
-        newPrimero.prev = ultimo;
-        first = newPrimero;
-        count--;
         return dev;
         // O(1)
 
@@ -47,11 +53,15 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
         Node<T> ultimo = first.prev;
         T dev = first.prev.data;
-        ultimo = ultimo.prev;
-        ultimo.next = first;
-        first.prev = ultimo;
-
-
+        if (first.equals(ultimo)) {
+            first.next = null;
+            first.prev = null;
+            first = null;
+        } else {
+            ultimo = ultimo.prev;
+            ultimo.next = first;
+            first.prev = ultimo;
+        }
         count--;
         return dev;
     }//O(1)
