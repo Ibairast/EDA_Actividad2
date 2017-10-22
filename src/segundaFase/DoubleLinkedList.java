@@ -80,7 +80,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                 count--;
                 return act.data;
             } else {
-                if (first.data == elem) {
+                if (first.data.equals(elem)) {
                     first = null;
                     count--;
                 }
@@ -108,7 +108,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         //Determina si la lista contiene un elemento concreto
         Node<T> act = first;
         if (!isEmpty()) {
-            while (elem != act.data) {
+            while (!elem.equals(act.data)) {
                 act = act.next;//Llegar al elemento
                 if (act == first) {
                     return false;//No esta
@@ -123,7 +123,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
         Node<T> act = first;
         if (!isEmpty()) {
-            while (elem != act.data) {
+            while (!elem.equals(act.data)) {
                 act = act.next;//Llegar al elemento
                 if (act == first) {
                     return null;//No esta
@@ -175,7 +175,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
         @Override
         public boolean hasNext() {
-            return act != null;
+            return act.next == first;
         }
 
         @Override
@@ -187,7 +187,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
             }
             return null;
         }
-        //O(1s)
+        //O(1)
 
 
     }
