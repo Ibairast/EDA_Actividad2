@@ -172,10 +172,10 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     // an iterator, doesn't implement remove() since it's optional
     private class ListIterator implements Iterator<T> {
         private Node<T> act = first;
-
+        private int x = count;
         @Override
         public boolean hasNext() {
-            return act.next != first;
+            return x >= 1;
         }
 
         @Override
@@ -183,6 +183,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
             if (hasNext()) {
                 T t = act.data;
                 act = act.next;
+                x--;
                 return t;
             }
             return null;
