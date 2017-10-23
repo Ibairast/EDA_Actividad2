@@ -175,12 +175,13 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
         @Override
         public boolean hasNext() {
-            return act.next == first;
+            return act.next != first;
         }
 
         @Override
         public T next() {
             if (hasNext()) {
+                !
                 T t = act.data;
                 act = act.next;
                 return t;
