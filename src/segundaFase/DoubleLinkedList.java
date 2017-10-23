@@ -69,7 +69,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         Node<T> act = first;
         if (!isEmpty()) {
             if (first != first.next) {
-                while (elem != act.data) {
+                while (!(elem.equals(act.data))) {
                     act = act.next;//Llegar al elemento
                     if (act == first) {
                         return null;//No esta
@@ -173,6 +173,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     private class ListIterator implements Iterator<T> {
         private Node<T> act = first;
         private int x = count;
+
         @Override
         public boolean hasNext() {
             return x >= 1;
