@@ -181,7 +181,6 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         @Override
         public T next() {
             if (hasNext()) {
-                !
                 T t = act.data;
                 act = act.next;
                 return t;
