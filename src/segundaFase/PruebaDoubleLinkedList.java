@@ -39,5 +39,11 @@ public class PruebaDoubleLinkedList {
         System.out.println("0? " + l.find(0));
         System.out.println("7? " + l.find(7));
 
+
+        System.out.println("Prueba Contains ...............");
+        System.out.println("8? " + l.contains(8));
+        System.out.println("0? " + l.contains(0));
+        System.out.println("20? " + l.contains(20));
+        System.out.println("7? " + l.contains(7));
     }
 }
