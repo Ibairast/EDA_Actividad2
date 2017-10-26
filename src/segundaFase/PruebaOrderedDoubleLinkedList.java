@@ -11,7 +11,11 @@ public class PruebaOrderedDoubleLinkedList {
 			l.add(7);
 			l.add(9);
 			l.add(0);
+			l.add(5);
 			l.add(20);
+			System.out.print(" Lista ...............");
+			l.visualizarNodos();
+			System.out.println(" Num elementos: " + l.size());
 			l.remove(new Integer(7));
 
 			
