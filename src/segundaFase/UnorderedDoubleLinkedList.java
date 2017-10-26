@@ -48,19 +48,25 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
         // A�ade elem detr�s de otro elemento concreto, target,  que ya se encuentra en la lista
         // �COMPLETAR OPCIONAL!
     	Node<T> newNode = new Node<>(elem);
+    	Node<T> act = first;
     	Node<T> tar = new Node<>(target);
-
+    	
+    	while(act.data != tar.data){
+    		act = act.next;
+    	}
+    	
     	if(first.prev == target){ //Caso: Target ultimo
     		tar.next = newNode;
     		newNode.next = first.prev;
     		newNode.prev = tar;
     		first.prev = newNode;
     	}else{ //Caso: Target no ultimo
-    		tar.next.prev = newNode;
-    		newNode.next = tar;
-    		newNode.prev = tar;
-    		tar.next = newNode;
+    		newNode.next = act.next;
+    		newNode.prev = act;
+    		newNode.next.prev = newNode;
+    		act.next = newNode;
     	}
+    	this.count ++;
     }//COSTE O(1)
 
 

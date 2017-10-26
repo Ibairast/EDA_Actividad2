@@ -26,6 +26,8 @@ public class PruebaDoubleLinkedList {
         l.addToRear(0);
         l.addToRear(20);
         l.addToFront(8);
+        l.addAfter(10, 6);
+        l.addAfter(80, 20);
         l.remove(new Integer(7));
 
 
@@ -38,6 +40,8 @@ public class PruebaDoubleLinkedList {
         System.out.println("9? " + l.find(9));
         System.out.println("0? " + l.find(0));
         System.out.println("7? " + l.find(7));
+        System.out.println("10? " + l.find(10));
+        System.out.println("80? " + l.find(80));
 
 
         System.out.println("Prueba Contains ...............");
@@ -45,5 +49,7 @@ public class PruebaDoubleLinkedList {
         System.out.println("0? " + l.contains(0));
         System.out.println("20? " + l.contains(20));
         System.out.println("7? " + l.contains(7));
+        System.out.println("10? " + l.contains(10));
+        System.out.println("80? " + l.contains(80));
     }
 }
