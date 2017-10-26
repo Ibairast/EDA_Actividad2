@@ -38,16 +38,7 @@ public class Persona implements Comparable<Persona> {
 			
 	@Override
 	public int compareTo(Persona arg0) {
-		int x = name.compareToIgnoreCase(arg0.name);
-		int resultado;
-		if (x < 0){
-			resultado = -1;
-		}else if(x > 0){
-			resultado = 1;
-		}else{
-			resultado = 0;
-		}
-		return resultado;
+		return name.compareToIgnoreCase(arg0.name);
 	}
 
 	public String toString() {

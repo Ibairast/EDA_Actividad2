@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class PruebaDoubleLinkedList {
 
-    public static void visualizarNodos(UnorderedDoubleLinkedList<Integer> l) {
+    private static void visualizarNodos(UnorderedDoubleLinkedList<Integer> l) {
         Iterator<Integer> it = l.iterator();
         System.out.println();
         while (it.hasNext()) {
@@ -27,7 +27,7 @@ public class PruebaDoubleLinkedList {
         l.addToRear(20);
         l.addToFront(8);
         l.addAfter(10, 6);
-        l.addAfter(80, 20);
+        l.addAfter(80, 666);
         l.remove(new Integer(7));
 
 

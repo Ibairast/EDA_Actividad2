@@ -166,7 +166,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
             T elem = it.next();
             result = result + "[" + elem.toString() + "] \n";
         }
-        return "SimpleLinkedList " + result + "]";
+        return "SimpleLinkedList\n" + result ;
     }
 
     // an iterator, doesn't implement remove() since it's optional
