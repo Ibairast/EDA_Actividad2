@@ -5,7 +5,6 @@ public class OrderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements O
 
 
     public void add(T elem) {
-        // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
         Node<T> newNode = new Node<>(elem);
         boolean enc = false;
         if (first == null) {

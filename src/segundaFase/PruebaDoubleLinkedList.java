@@ -30,7 +30,7 @@ public class PruebaDoubleLinkedList {
         l.addAfter(80, 666);
         l.remove(new Integer(7));
 
-
+        //HACER LISTA VACIA Y LISTA SOLO UN ELEMENTO
         System.out.print(" Lista ...............");
         visualizarNodos(l);
         System.out.println(" Num elementos: " + l.size());

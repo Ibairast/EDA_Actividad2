@@ -25,47 +25,48 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     }
 
     public T removeFirst() {
-        // Elimina el primer elemento de la lista
-        // Precondici�n: la lista tiene al menos un elemento
-        // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-        T dev = first.data;
-        Node<T> newPrimero = first.next;
-        Node<T> ultimo = first.prev;
-        if (first.equals(ultimo)) {
-            first = null;
-        } else {
-            ultimo.next = newPrimero;
-            newPrimero.prev = ultimo;
-            first = newPrimero;
-            count--;
+        if (!isEmpty()) {
+
+
+            T dev = first.data;
+            Node<T> newPrimero = first.next;
+            Node<T> ultimo = first.prev;
+            if (first==ultimo) {
+                first = null;
+            } else {
+                ultimo.next = newPrimero;
+                newPrimero.prev = ultimo;
+                first = newPrimero;
+                count--;
+            }
+
+            return dev;
+        }        // O(1)
+        else {
+            return null;
         }
-
-        return dev;
-        // O(1)
-
     }
 
     public T removeLast() {
-        // Elimina el �ltimo elemento de la listac
-        // Precondici�n: la lista tiene al menos un elemento
-        // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-        Node<T> ultimo = first.prev;
-        T dev = first.prev.data;
-        if (first.equals(ultimo)) {
-            first = null;
+        if (!isEmpty()) {
+            Node<T> ultimo = first.prev;
+            T dev = first.prev.data;
+            if (first==ultimo) {
+                first = null;
+            } else {
+                ultimo = ultimo.prev;
+                ultimo.next = first;
+                first.prev = ultimo;
+            }
+            count--;
+            return dev;
         } else {
-            ultimo = ultimo.prev;
-            ultimo.next = first;
-            first.prev = ultimo;
+            return null;
         }
-        count--;
-        return dev;
     }//O(1)
 
 
     public T remove(T elem) {
-        //Elimina un elemento concreto de la lista
-        // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
         Node<T> act = first;
         if (!isEmpty()) {
             if (first != first.next) {
@@ -119,8 +120,6 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     }// O(n/2)*P(está) + O(n)*P(!está)
 
     public T find(T elem) {
-        //Determina si la lista contiene un elemento concreto, y develve su referencia, null en caso de que no est�
-        // COMPLETAR EL CODIGO Y CALCULAR EL COSTE
         Node<T> act = first;
         if (!isEmpty()) {
             while (!elem.equals(act.data)) {
@@ -166,7 +165,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
             T elem = it.next();
             result = result + "[" + elem.toString() + "] \n";
         }
-        return "SimpleLinkedList\n" + result ;
+        return "SimpleLinkedList\n" + result;
     }
 
     // an iterator, doesn't implement remove() since it's optional
