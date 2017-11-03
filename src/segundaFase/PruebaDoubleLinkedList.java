@@ -18,6 +18,19 @@ public class PruebaDoubleLinkedList {
     public static void main(String[] args) {
 
         UnorderedDoubleLinkedList<Integer> l = new UnorderedDoubleLinkedList<>();
+        System.out.println("Pruebas Lista Vacia ...............");
+        visualizarNodos(l);
+        System.out.println(" Num elementos: " + l.size());
+        System.out.println("9? " + l.find(9));
+        System.out.println("0? " + l.contains(0));
+
+        System.out.println("Pruebas Un elemento ...............");
+        l.addToRear(9);
+        visualizarNodos(l);
+        System.out.println(" Num elementos: " + l.size());
+        System.out.println("9? " + l.find(9));
+        System.out.println("9? " + l.contains(9));
+
         l.addToRear(1);
         l.addToRear(3);
         l.addToRear(6);
@@ -30,7 +43,7 @@ public class PruebaDoubleLinkedList {
         l.addAfter(80, 666);
         l.remove(new Integer(7));
 
-        //HACER LISTA VACIA Y LISTA SOLO UN ELEMENTO
+
         System.out.print(" Lista ...............");
         visualizarNodos(l);
         System.out.println(" Num elementos: " + l.size());

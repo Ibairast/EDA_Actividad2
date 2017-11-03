@@ -12,6 +12,7 @@ public class PruebaOrderedDoubleLinkedList {
         l.add(9);
         l.add(0);
         l.add(5);
+        l.add(3);
         l.add(20);
         System.out.print(" Lista ...............");
         l.visualizarNodos();
@@ -30,6 +31,7 @@ public class PruebaOrderedDoubleLinkedList {
         System.out.println("9? " + l.find(9));
         System.out.println("0? " + l.find(0));
         System.out.println("7? " + l.find(7));
+        System.out.println("3? " + l.find(3));
 
 
         OrderedDoubleLinkedList<Persona> l2 = new OrderedDoubleLinkedList<>();
@@ -57,4 +59,5 @@ public class PruebaOrderedDoubleLinkedList {
 
     }
 }
+
 

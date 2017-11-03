@@ -115,6 +115,8 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                     return false;//No esta
                 }
             }
+        } else {
+            return false;
         }
         return true;
     }// O(n/2)*P(está) + O(n)*P(!está)
@@ -128,8 +130,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                     return null;//No esta
                 }
             }
+            return act.data;
         }
-        return act.data;
+        return null;
     }// O(n/2)*P(está) + O(n)*P(!está)
 
     public boolean isEmpty()
@@ -149,6 +152,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     /**
      * Return an iterator to the stack that iterates through the items .
      */
+
     public Iterator<T> iterator() {
         return new ListIterator();
     }
