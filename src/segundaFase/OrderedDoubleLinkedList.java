@@ -5,7 +5,6 @@ public class OrderedDoubleLinkedList<T extends Comparable<T>> extends DoubleLink
 
 
 	public void add(T elem){
-		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
 		Node<T> newNode = new Node<>(elem);
 		boolean enc = false;
 		if (first == null) {
@@ -60,6 +59,7 @@ public class OrderedDoubleLinkedList<T extends Comparable<T>> extends DoubleLink
 
 		this.count++;
 	}
+
 
 
 }
