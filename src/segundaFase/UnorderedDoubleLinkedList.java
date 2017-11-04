@@ -55,9 +55,6 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
             act = act.next;
             cont++;
         }
-        if (cont == count) {
-            return;//Caso en que no se encuentre el target
-        }
 
         if (first.prev == target) { //Caso: Target ultimo
             tar.next = newNode;
